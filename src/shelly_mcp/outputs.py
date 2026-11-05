@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from shelly_mcp.client import ShellyClient, ShellyError
+from shelly_mcp.components import fetch_components
 
 
 def output_kind(
@@ -12,7 +13,7 @@ def output_kind(
     if forced in ("switch", "light"):
         return forced
     try:
-        data = client.call("Shelly.GetComponents", {"dynamic": True})
+        data = fetch_components(client, dynamic=True)
     except ShellyError:
         data = {}
     for item in data.get("components") or []:

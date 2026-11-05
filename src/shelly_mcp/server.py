@@ -25,6 +25,7 @@ from shelly_mcp import rgbww as shelly_rgbww
 from shelly_mcp import __version__
 from shelly_mcp.registry import DeviceRegistry, dumps
 from shelly_mcp.rpc_params import parse_params
+from shelly_mcp.components import fetch_components
 
 mcp = MCPServer(
     "shelly",
@@ -111,14 +112,13 @@ def get_device_info(device_id: str) -> str:
 
 @mcp.tool(
     description=(
-        "Shelly.GetComponents summary: light/switch/input keys on the device."
+        "Shelly.GetComponents (all pages): switches, lights, BTHome/BLU sensors, "
+        "virtual components, etc."
     )
 )
 def get_components(device_id: str) -> str:
     try:
-        result = registry().get_client(device_id).call(
-            "Shelly.GetComponents", {"dynamic": True}
-        )
+        result = fetch_components(registry().get_client(device_id), dynamic=True)
         keys = [c.get("key") for c in (result.get("components") or []) if c.get("key")]
     except ShellyError as exc:
         raise ValueError(str(exc)) from exc

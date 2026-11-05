@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from shelly_mcp.client import ShellyClient, ShellyError
+from shelly_mcp.components import fetch_components
 
 EM50_CHANNELS = (0, 1)
 
@@ -82,7 +83,7 @@ def list_channels(
 
 def _em_keys(client: ShellyClient) -> set[str]:
     try:
-        data = client.call("Shelly.GetComponents", {"dynamic": True})
+        data = fetch_components(client, dynamic=True)
     except ShellyError:
         return set()
     return {c.get("key") for c in (data.get("components") or []) if c.get("key")}
