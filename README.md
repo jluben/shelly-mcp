@@ -22,10 +22,15 @@ Gen1 devices (`/relay/0` only) are **not** supported.
 - Shelly devices on a network reachable from the machine running the MCP server
 - Optional: [Docker](https://www.docker.com/) for HTTP transport on a LAN host
 
+## Repository
+
+Hosted on [Cursor Origin](https://origin.cursor.com): **josh-0wx8p/shelly-mcp** (private).  
+Web: [cursor.com/codebase/josh-0wx8p/shelly-mcp](https://cursor.com/codebase/josh-0wx8p/shelly-mcp)
+
 ## Install
 
 ```powershell
-git clone <your-repo-url> shelly-mcp
+git clone https://origin.cursor.com/josh-0wx8p/shelly-mcp.git shelly-mcp
 cd shelly-mcp
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
