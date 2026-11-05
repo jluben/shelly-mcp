@@ -16,6 +16,17 @@ Works with **Cursor**, **Claude Desktop**, and any MCP client that supports stdi
 
 Gen1 devices (`/relay/0` only) are **not** supported.
 
+## Verification
+
+This server was **hand-tested** on a live home/office LAN with **[Claude Cowork](https://claude.com/product/cowork)** and several **Shelly Pro** Gen2 modules, including:
+
+- **Shelly Pro Dimmer** — `Light.*` on/off and brightness
+- **Shelly Pro switch / relay** — `Switch.*` on/off and toggle
+- **Shelly Pro RGBWW PM** — RGB, CCT, and white channels
+- **Shelly Pro EM-50** — per-channel power/energy and labeled EM1 channels
+
+Testing covered device listing, reload after config changes, and the tool groups listed below (not automated CI against hardware).
+
 ## Requirements
 
 - Python **3.11+**
