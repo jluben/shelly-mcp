@@ -24,13 +24,12 @@ Gen1 devices (`/relay/0` only) are **not** supported.
 
 ## Repository
 
-Hosted on [Cursor Origin](https://origin.cursor.com): **josh-0wx8p/shelly-mcp** (private).  
-Web: [cursor.com/codebase/josh-0wx8p/shelly-mcp](https://cursor.com/codebase/josh-0wx8p/shelly-mcp)
+**GitHub:** [github.com/jluben/shelly-mcp](https://github.com/jluben/shelly-mcp) (private)
 
 ## Install
 
 ```powershell
-git clone https://origin.cursor.com/josh-0wx8p/shelly-mcp.git shelly-mcp
+git clone https://github.com/jluben/shelly-mcp.git shelly-mcp
 cd shelly-mcp
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
