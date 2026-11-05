@@ -1,0 +1,10 @@
+services:
+  shelly-mcp:
+    build: .
+    ports:
+      - "8765:8765"
+    environment:
+      SHELLY_CONFIG: /config/config.json
+    volumes:
+      - ./shelly-config.json:/config/config.json:ro
+    restart: unless-stopped

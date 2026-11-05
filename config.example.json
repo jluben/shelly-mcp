@@ -1,0 +1,21 @@
+{
+  "default_password_env": "SHELLY_PASSWORD",
+  "devices": [
+    {
+      "id": "living-room-plug",
+      "host": "192.168.1.42",
+      "password_env": "SHELLY_LIVING_ROOM_PASSWORD"
+    },
+    {
+      "id": "rgbww-strip",
+      "host": "192.168.1.55",
+      "profile": "rgbcct"
+    },
+    {
+      "id": "panel-meter",
+      "host": "192.168.1.60",
+      "type": "em50",
+      "channels": ["Main panel", "Solar CT"]
+    }
+  ]
+}

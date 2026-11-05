@@ -1,0 +1,45 @@
+{
+  "manifest_version": "0.4",
+  "name": "shelly-local",
+  "display_name": "Shelly (local LAN)",
+  "version": "0.1.0",
+  "description": "Control Shelly Gen2+ plugs and relays on your LAN",
+  "author": {
+    "name": "Josh"
+  },
+  "server": {
+    "type": "uv",
+    "entry_point": "src/shelly_mcp/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run", "--directory", "${__dirname}", "src/shelly_mcp/server.py"],
+      "env": {
+        "SHELLY_CONFIG": "${user_config.shelly_config}",
+        "SHELLY_PASSWORD": "${user_config.shelly_password}",
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  },
+  "user_config": {
+    "shelly_config": {
+      "type": "string",
+      "title": "Shelly config file",
+      "description": "Full path to shelly-config.json (device IPs)",
+      "required": true,
+      "default": "C:\\Users\\josh\\Projects\\shelly-mcp\\shelly-config.json"
+    },
+    "shelly_password": {
+      "type": "string",
+      "title": "Device password",
+      "description": "Optional Shelly admin password (leave blank if unlocked)",
+      "required": false,
+      "sensitive": true
+    }
+  },
+  "compatibility": {
+    "platforms": ["win32", "darwin", "linux"],
+    "runtimes": {
+      "python": ">=3.11"
+    }
+  }
+}
